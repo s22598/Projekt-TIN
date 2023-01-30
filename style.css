@@ -1,16 +1,719 @@
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Sanchez&display=swap');
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Sanchez', serif;
-    /* font-family: 'Montserrat', sans-serif; */
+/* HEADER */
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 0.8rem 2rem;
+    position: sticky;
+    top: 0;
+    background-color: black;
+    z-index: 100;
+    transition: all 0.4s ease-in-out;
 }
 
-body{
-    font-size: 10px;
-    overflow-x: hidden !important;
-    color: white;
+header.active{
+    box-shadow: black;
+    padding: 1rem 1rem 0 0;
 }
+
+.logo{
+    margin-top: -2.5rem;
+    margin-bottom: -3%;
+}
+
+.menu{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    text-align: center;
+    list-style: none;
+    font-size: 1.8rem;
+    height: 100vh;
+    width: 100vw;
+    background: black;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(100%);
+    transition: all 0.3s ease-in-out;
+}
+
+.menu.active{
+    transform: translateX(0);
+}
+
+.burger{
+    height: 3.4rem;
+    width: 3.4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background: transparent;
+    border: none;
+    align-items: flex-end;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease-in-out;
+}
+
+.burger.active{
+    z-index: 10;
+}
+
+.burger.active > span{
+    background: white;
+}
+
+.burger span{
+    width: 100%;
+    height: 0.3rem;
+    border-radius: 0.5rem;
+    background: white;
+    transition:  all 0.3s ease-in-out;
+}
+
+.burger span:nth-child(2){
+    width: 80%;
+}
+
+.burger span:nth-child(3){
+    width: 60%;
+}
+
+.burger.active > span:nth-child(1){
+    transform:  rotate(-45deg) translateY(0.9rem) translateX(-0.2rem);
+    width: 80%;
+}
+
+.burger.active > span:nth-child(2){
+    transform:  rotate(45deg) translateY(-0.6rem) translateX(0.2rem);
+}
+
+.burger.active > span:nth-child(3){
+    transform:  translateX(100vw);
+}
+
+.menu-link{
+    position: relative;
+    cursor: pointer;
+}
+
+/* DESKTOP MENU */
+
+@media only screen and (min-width: 1000px){
+    .burger{
+        display: none;
+    }
+
+    .menu{
+        position: unset;
+        background: inherit;
+        list-style: none;
+        flex-direction: row;
+        height: inherit;
+        width: max-content;
+        gap: 5rem;
+        font-size: 1.2rem;
+        font-weight: normal;
+        align-items: center;
+        transform: translateX(0);
+    }
+
+    .menu-link::after{
+        content: '';
+        width: 0%;
+        height: 0.2rem;
+        background: white;
+        position: absolute;
+        bottom: -0.2rem;
+        left: 0;
+        border-radius: 2rem;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .menu-link:hover::after{
+        width: 100%;
+    }
+
+    .menu-link:last-child{
+        background: white;
+        color: black;
+        padding: 0.5rem 1.5rem;
+        border-radius: 1rem;
+    }
+
+    .menu-link:last-child::after{
+        display: none;
+    }
+}
+
+/* HOME */
+.home{
+    background: black;
+}
+
+.home img{
+    width: 100%;
+}
+
+/* NUMBERS */
+.numbers{
+    background: black;
+    color: #e7e7e7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    margin: 0;
+}
+
+.counter-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    margin: 30px 50px;
+}
+
+.counter{
+    font-size: 50px;
+    margin-top: 10px;
+}
+
+.fa-city,
+.fa-cow,
+.fa-people-group,
+.fa-scale-unbalanced-flip{
+    font-size: 70px;
+}
+span{
+    font-size: 20px;
+}
+
+@media only screen and (min-width: 1200px){
+    .counter{
+        font-size: 4rem;
+    }
+
+    span{
+        font-size: 1.5rem;
+    }
+    
+}
+@media only screen and (max-width: 900px){
+    .counter{
+        font-size: 2rem;
+    }
+    
+    span{
+        font-size: 1rem;
+    }
+    .fa-city,
+    .fa-cow,
+    .fa-people-group,
+    .fa-scale-unbalanced-flip{
+        font-size: 30px;
+    }
+    .counter-container{
+        margin: 1rem;
+    }
+
+}
+@media only screen and (max-width: 575px){
+    .counter{
+        font-size: 1.7rem;
+    }
+    .counter-container{
+        margin: 1rem;
+    }
+    span{
+        font-size: 0.7rem;
+    }
+    .numbers{
+        flex-direction: column;
+        margin: 0;
+        margin: 0;
+    }
+    .fa-city,
+    .fa-cow,
+    .fa-people-group,
+    .fa-scale-unbalanced-flip{
+        font-size: 35px;
+    }
+}
+
+/* MAP */
+.about{
+    background: #e7e7e7;
+}
+.title{
+    background: #e7e7e7;
+    font-size: 3rem;
+    text-align: center;
+    color: black;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.about img{
+    width: 100vw;
+}
+
+@media only screen and (max-width: 1200px){
+    .title{
+        font-size: 2.5rem;
+    }
+}
+@media only screen and (max-width: 900px){
+    .title{
+        font-size: 2.0rem;
+    }
+}
+@media only screen and (max-width: 575px){
+    .title{
+        font-size: 1.5rem;
+        padding-top: 0.5rem;
+    }
+}
+
+.factory{
+    background-image: linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.8)),url(img/factory-bg.png);
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+    display: flex;
+    text-align: left;
+
+}
+
+.factory img{
+    width: 50%;
+    height: auto;
+    margin: 1rem;
+}
+
+.factory-text h1{
+    font-size: 2rem;
+}
+
+.factory-desc{
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+}
+
+/* OFFER */
+
+.buying-title{
+    background: #e7e7e7;
+    font-size: 4rem;
+    text-align: center;
+    color: black;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.offer img{
+    width: 100%;
+}
+
+.sales-title{
+    background: black;
+    font-size: 4rem;
+    text-align: center;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* CERTYFICATE */
+
+.certyficate{
+    padding-bottom: 1rem;
+}
+
+.certyficate-title{
+    background: white;
+    font-size: 3rem;
+    text-align: center;
+    color: black;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+/* QUOTE */
+.quote{
+    background: black;
+    margin-top: 7%;
+}
+
+.quote div{
+    font-size: 2.3rem;
+    text-align: center;
+    padding: 2rem 6rem 2rem 6rem;
+    font-family: 'Montserrat', sans-serif;
+    position: relative;
+    z-index: 2;
+}
+
+p{
+    font-size: 1.5rem;
+    color: #9B9B9B;
+    text-align: center;
+    padding-bottom: 1rem;
+    margin-bottom: 0;
+    width: 100%;
+    background-color: black;
+}
+
+.img-top{
+    position: absolute;
+    z-index: 1;
+    margin-top: -4%;
+    width: 100%;
+}
+
+.img-bottom{
+    position: absolute;
+    z-index: 1;
+    margin-top: -4%;
+    width: 100%;
+}
+i{
+    position: relative;
+    z-index: 2;
+}
+
+/* CONTACT */
+
+.position{
+    padding-top: 1rem;
+}
+
+.contact-form{
+    margin: 3rem auto;
+    width: 80%;
+}
+
+.contact-form-field{
+    margin: 1rem;
+}
+
+.contact-form label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 0.2rem;
+    color: black;
+}
+
+.contact-form input, 
+.contact-form textarea{
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.5rem 0.2rem;
+    border-radius: 0.7rem;
+    border: 1px solid #9B9B9B;
+}
+
+.contact-form-btn{
+    background: black;
+    color: white;
+    border: none;
+    width: 50%;
+    font-size: 1rem;
+    display: block;
+    margin: 0 auto;
+    padding: 0.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+.contact-form-btn:hover{
+    background: #9B9B9B;
+}
+
+@media only screen and (min-width: 1200px){
+    .factory img{
+        width: 50%;
+        height: auto;
+        margin: 2rem;
+    }
+    .factory-text h1{
+        font-size: 1.8rem;
+        padding: 5rem 2rem 0 0;
+    }
+    .factory-desc{
+        font-size: 0.9rem;
+        padding: 0 2rem 0 0;
+    }
+    .buying-title{
+        font-size: 2rem;
+    }
+    .sales-title{
+        font-size: 2rem;
+    }
+    .certyficate-title{
+        font-size: 2rem;
+    }
+    .quote div{
+        font-size: 2.3rem;
+    }
+    i{
+        font-size: 1.5rem;
+    }
+    .contact-form{
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 3200px){
+    .factory img{
+        width: 40%;
+        margin: 2rem;
+    }
+    .factory-text h1{
+        font-size: 2.7rem;
+        padding: 5rem 5rem 0 4rem;
+    }
+    .factory-desc{
+        font-size: 1rem;
+        padding: 0 5rem 0 4rem;
+    }
+    .buying-title{
+        font-size: 2.7rem;
+    }
+    .sales-title{
+        font-size: 2.7rem;
+    }
+    .certyficate-title{
+        font-size: 2.7rem;
+    }
+    .quote div{
+        font-size: 2.3rem;
+    }
+    i{
+        font-size: 1.5rem;
+    }
+    .contact-form{
+        width: 40%;
+    }
+}
+
+@media only screen and (max-width: 1200px){
+    .factory-text h1{
+        font-size: 2rem;
+        padding: 2rem 3rem 0 1rem;
+    }
+    .factory-desc{
+        font-size: 0.9rem;
+        padding: 0 3rem 0 1rem;
+    }
+    .buying-title{
+        font-size: 2rem;
+    }
+    .sales-title{
+        font-size: 2rem;
+    }
+    .certyficate-title{
+        font-size: 2rem;
+    }
+    .quote div{
+        font-size: 2rem;
+    }
+    i{
+        font-size: 1.2rem;
+    }
+    .contact-form{
+        width: 40%;
+    }
+
+ @media only screen and (min-width: 11000px){
+    .position{
+        display: block;
+        width: 45%;
+    }
+    .contact{
+        display: flex;
+    }
+    .contact-form {
+        padding: 2rem;
+    }
+  }
+
+@media only screen and (min-width: 900px){
+    .contact-form{
+        width: 50%;
+    }
+}
+
+
+}
+@media only screen and (max-width: 835px){
+    .factory-text h1{
+        font-size: 1.6rem;
+        padding: 5rem 2rem 0 0;
+    }
+    .factory-desc{
+        font-size: 0.9rem;
+        padding: 0 2rem 0 0;
+    }
+    .buying-title{
+        font-size: 1.6rem;
+    }
+    .sales-title{
+        font-size: 1.6rem;
+    }
+    .certyficate-title{
+        font-size: 1.6rem;
+    }
+    .quote div{
+        font-size: 1.6rem;
+    }
+    p{
+        font-size: 0.9rem;
+    }
+}
+
+@media only screen and (max-width: 695px){
+
+    .factory-text h1{
+        font-size: 1.5rem;
+        padding: 3rem 0rem 0 0;
+    }
+    .factory-desc{
+        font-size: 0.8rem;
+        padding: 0 0 1rem 0;
+    }
+    .buying-title{
+        font-size: 1.5rem;
+    }
+    .sales-title{
+        font-size: 1.5rem;
+    }
+    .certyficate-title{
+        font-size: 1.5rem;
+    }
+    .quote div{
+        font-size: 1.5rem;
+    }
+    p{
+        font-size: 1.0rem;
+    }
+}
+
+@media only screen and (max-width: 575px){
+    .factory img{
+        width: 90%;
+        margin: 1.5rem;
+        padding: 0;
+    }
+    .factory{
+        display: block;
+    }
+    .factory-text h1{
+        font-size: 1.5rem;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+    .factory-desc{
+        font-size: 0.7rem;
+        margin: 0.7rem 1.5rem 0;
+        padding: 0 0 1rem 0;
+        text-align: center;
+    }
+    .buying-title{
+        font-size: 1.5rem;
+    }
+    .sales-title{
+        font-size: 1.5rem;
+    }
+    .certyficate-title{
+        font-size: 1.5rem;
+    }
+    .quote div{
+        font-size: 1.5rem;
+    }
+    p{
+        font-size: 0.7rem;
+    }
+}
+
+.img{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@media only screen and (max-width: 575px){
+    .img-fluid{
+        width: 30%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+footer{
+    display: flex;
+    margin-top: 4.5%;
+    padding: 0.2rem;
+    font-size: 0.6rem;
+    height: 20%;
+    background: #9B9B9B;
+    text-align: left;
+}
+footer div{
+    margin: 0 auto;
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* CONTACT 
+.contact{
+    background: black;
+    width: 100%;
+    padding: 5rem 0 5rem 5rem;
+}
+
+.contact-col-left div{
+    display: flex;
+    align-items: center;
+    padding-bottom: 2rem;
+}
+
+.contact-col-right div{
+    display: flex;
+}
+
+.contact-col-left{
+    width: 30%;
+}
+
+.contact-col-right{
+    width: 70%;
+    padding-left: 5rem;
+    padding-right: 5rem;
+}
+
+h5{
+    font-size: 1.2rem;
+    color: #E7E7E7;
+    padding-left: 4rem;
+}
+
+@media only screen and (max-width: 1000px){
+    h5{
+        font-size: 1rem;
+    }
+}
+
+@media only screen and (max-width: 575px){
+    h5{
+        font-size: 0.7rem;
+    }
+    .contact{
+        display:inline-block;
+    }
+
+}
+*/
+
