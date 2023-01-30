@@ -1,25 +1,125 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1 shrink-to-fit=no">
-  <meta name="description" content="PPHU Bartek Ubojnia Zwierząt. Skup i sprzedaż bydła">
-	<meta name="keywords" content="ubojnia, zwierzęta, bartek, skup, sprzedaż, bydło, krowy">
-	<meta name="author" content="Joanna Rosłoniec, Zuzanna Soboń">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="bootstrap.min.css">
-  <link rel="stylesheet" href="style.css">
-  <title>Ubojnia Bartek</title>
-</head>
-<body>
+  <!-- HEADER -->
+  <header>
+    <div class="logo">
+      <img src="img/logo.png" alt="website-logo" width="200px"/>
+    </div>
+    <ul class="menu">
+      <li data-key="home" class="menu-link">Strona główna</li>
+      <li data-key="about" class="menu-link">O nas</li>
+      <li data-key="offer" class="menu-link">Oferta</li>
+      <li data-key="contact" class="menu-link">Kontakt</li>
+    </ul>
+    <button class="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
 
-  <script src="main.js"></script>
+  <!-- HOME -->
+  <section class="home">
+    <img src="img/background.png" alt="tło strony - logo Bartek Ubojnia Zwierząt. Rodzinna firma z pasją. Z tradycją"/>
+  </section>
+  
+  <!-- NUMBERS -->
+  <div class="numbers">
+    <div class="counter-container">
+      <i class="fa-solid fa-city fa-5x"></i>
+        <div class="counter" data-target="24"></div>
+        <span>lata na rynku</span>
+    </div>
 
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-	
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <div class="counter-container">
+      <i class="fa-solid fa-cow fa-3x"></i>
+        <div class="counter" data-target="2000"></div>
+        <span>ubitych sztuk miesięcznie</span>
+    </div>
 
-  <script src="bootstrap.min.js"></script>
-</body>
-</html>
+    <div class="counter-container">
+      <i class="fa-solid fa-people-group fa-3x"></i>
+        <div class="counter" data-target="50"></div>
+        <span>uzdolnionych pracowników</span>
+    </div>
+    <div class="counter-container">
+      <i class="fa-solid fa-scale-unbalanced-flip fa-3x"></i>
+        <div class="counter" data-target="530000"></div>
+        <span>kilogramów sprzedanego mięsa rocznie</span>
+    </div>
+  </div>
+
+
+  <script src="app.js"></script>
+
+  <!-- MAP -->
+  <section class="about">
+      <div class="title">Zna Nas cała Europa. <br> No... Prawie cała :) </div>
+      <img src="img/map.png" alt="Mapa Państw, z którymi współpracuje Ubojnia Bartek"/>
+
+    <section class="factory">
+      <img src="img/factory.png" alt="Fabryka" />
+      <div class="factory-text">
+        <h1>Wólka Somiankowska - <br> mała wioska, wielki zakład</h1>
+        <div class="factory-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint, sed! Similique, magni voluptatem! Quae itaque totam nostrum impedit enim consectetur, beatae earum labore cumque perspiciatis voluptate iusto repudiandae atque deserunt?</div>
+      </div>
+    </section>
+
+  </section>
+
+  <!-- OFFER -->
+  <section class="offer">
+    <section class="buying">
+      <div class="buying-title">Co skupujemy? </div>
+      <img src="img/buying.png" alt="Grafiki przedstawiające krowę, jałówkę i buhaja"/>
+    </section>
+
+    <section class="sales">
+      <div class="sales-title">Jakie mięso sprzedajemy? </div>
+      <img src="img/sales.png" alt="Grafiki ilustrujące mięso świeże, mrożone i pakowane próżniowo"/>
+    </section>
+
+    <section class="certyficate">
+      <div class="certyficate-title">Jakość jest naszym priorytetem </div>
+      <img src="img/c.png" alt="Certyfikaty"/>
+    </section>
+  </section>
+
+<!-- CONTACT -->
+<section class="contact">
+  <div class="position">
+    <div class="googlemap">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5686.047602998593!2d21.31370761182115!3d52.5865793347622!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471eeed2702c0d1b%3A0xc296f5fef99a6d03!2sBartek.%20PPHU.%20Ubojnia%20zwierz%C4%85t!5e0!3m2!1spl!2spl!4v1675013394550!5m2!1spl!2spl" width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+    <div class="certyficate-title">Skontaktuj się z Nami! </div>
+  <form class="contact-form">
+    <div class="contact-form-field">
+      <label for="name">Imię</label>
+      <input type="text" name="name" required />
+    </div>
+    <div class="contact-form-field">
+      <label for="email">Email</label>
+      <input type="text" name="name" required />
+    </div>
+    <div class="contact-form-field">
+      <label for="message">Wiadomość</label>
+      <textarea name="message" cols="30" rows="8"></textarea>
+    </div>
+    <button class="contact-form-btn">Wyślij</button>
+  </form>
+  </div>
+</section>
+
+<!-- QUOTE -->
+  <section>
+    <div class="quote">
+      <img class="img-top" src="img/up.png" alt="Cudzysłów" />
+      <div>Firma Bartek to nie jestem ja. To są ludzie, którzy każdego dnia pracują na wizerunek firmy.</div>
+    </div>
+      <p><i> ~ Wiesław Bartosiak, właściciel </i></p>
+      <img class="img-bottom" src="img/down.png" alt="Cudzysłów" />
+  </section>
+
+  <!-- FOOTER -->
+<footer>
+  <div> Made with ♥ by Asia & Zuza </div>
+  <div> Copyright &copy; 2023 All rights reserved. </div>
+</footer>
